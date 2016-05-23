@@ -1,0 +1,25 @@
+<div class="container">
+	<h1>{{data.category.name}}</h1>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 col-md-8">
+			{{# each data.posts.results}}
+			<h2><a style="color: #333333;" href="/article/{{slug}}">{{{title}}}</a></h2>
+				<div class="thumbnail">
+					<a href="/article/{{slug}}"><img src={{image.url}} style="min-width:100%" class="img-responsive" alt={{title}}>
+					<div class="caption"></a>
+						<div class="post">
+							{{{content.brief}}}
+							<p class="read-more"><a href="/article/{{slug}}">Read more...</a></p>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+		</div>
+		<div class="col-sm-4 col-md-4">
+			{{>pageAds}}
+		</div>
+	</div>
+	{{>pagination}}
+</div>

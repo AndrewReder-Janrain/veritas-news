@@ -1,0 +1,57 @@
+<div class="container">
+	<div class="row">
+		<p><a href="/">&larr; back to home</a></p>
+		{{#ifeq data.post.slug "us-open-2015-serena-beats-venus-in-battle-of-williams-sisters"}}
+			<div class="col-sm-8 col-md-8">
+				<h2>{{data.post.title}}</h2>
+				<div class="thumbnail">
+					<img src={{data.post.image.url}} style="min-width:100%" class="img-responsive" alt={{this.post.title}}>
+					<div class="caption">
+						<h5>Posted in <a href="/section/{{category.key}}">{{category.name}}</a></h5>
+						<div class="post">
+							{{{data.post.content.extended}}}
+						</div>
+					</div>
+				</div>
+				{{>tennisCommenting}}
+			</div>
+			<div class="col-sm-4 col-md-4">
+				<h2>#tennis on Twitter</h2>
+				{{>tennisStream}}
+			</div>
+		{{else}}
+			{{#ifeq data.post.slug "analysis-why-is-russia-so-interested-in-syria"}}
+			<div class="col-sm-8 col-md-8">
+				<h2>{{data.post.title}}</h2>
+				<div class="thumbnail">
+					<img src={{data.post.image.url}} style="min-width:100%" class="img-responsive" alt={{this.post.title}}>
+					<div class="caption">
+						<h5>Posted in <a href="/section/{{category.key}}">{{category.name}}</a></h5>
+						<div class="post">
+							{{{data.post.content.extended}}}
+						</div>
+					</div>
+				</div>
+				{{>syriaCommenting}}
+			</div>
+			<div class="col-sm-4 col-md-4">
+				<h2>Trending on Twitter</h2>
+				{{>syriaTrend}}
+			</div>
+			{{else}}
+			<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+				<h2>{{data.post.title}}</h2>
+				<div class="thumbnail">
+					<img src={{data.post.image.url}} style="min-width:100%" class="img-responsive" alt={{this.post.title}}>
+					<div class="caption">
+						<h5>Posted in <a href="/section/{{category.key}}">{{category.name}}</a></h5>
+						<div class="post">
+							{{{data.post.content.extended}}}
+						</div>
+					</div>
+				</div>
+			</div>
+			{{/ifeq}}
+		{{/ifeq}}
+	</div>
+</div>

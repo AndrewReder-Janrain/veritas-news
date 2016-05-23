@@ -1,0 +1,27 @@
+<html>
+  <head></head>
+  <body>
+    <div id="arktan-social-trend-id_Veritas_News_Syria_Trend"></div>
+    <script src="/js/jquery/jquery-1.11.3.min.js"></script>
+    <script>
+      var Arktan = {};
+    </script>
+    <script type="text/javascript" src="/janrain/scripts/ark-woj-min.js"></script>
+    <script>
+    var ArktanTrendsConfig = {
+      "trendId":'http://www.janrain.com/solutions/id_Veritas_News_Syria_Trend',
+      "targetDOM": $("#arktan-social-trend-id_Veritas_News_Syria_Trend"),
+      "counter": "totalCount",
+      "social": true,
+      "sortOrder": "rankAscending",
+      "hideTimeStamp":true,
+      "itemsPerPage":8,
+      "appkey":"dev.janrain",
+      "cloudDBUrl":"http://cloud62.arktan.com/arktan/api"
+    };
+    $(document).ready(function(){
+      Arktan.SocialTrends.init(ArktanTrendsConfig);
+    });
+    </script>
+  </body>
+</html>

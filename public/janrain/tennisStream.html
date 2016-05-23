@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script src="/js/jquery/jquery-1.11.3.min.js"></script>
+    <script>
+      var Arktan = {};
+      Arktan.settings = {
+      };
+      var ArktanSocialStreamsConfig = {
+        "source":{
+          "name": "Arktan.com",
+          "uri": "http://www.arktan.com"
+        },
+        "janrainAppName": "janrain-se-demo",
+        "busName": "se-demo",
+        "appkey": "dev.janrain",
+        "identityUrl": "https://janrain-se-demo.rpxnow.com/openid/embed?flags=stay_in_window,no_immediate&token_url=http%3A%2F%2Fsandbox.arktan.com%2Farkjs%2Fwaiting.html&bp_channel=",
+        "visualization":{
+        "vizname":"default"
+        },
+        "apps": [
+        {
+        "type":"stream",
+        "streamTarget":"arktan-stream",
+        "id": "all",
+        "streamID": "http://www.janrain.com/solutions/id_Veritas_News_Serena_Williams"
+        }
+      ]};
+      $(document).ready(function(){
+        Arktan.SocialApps.install(ArktanSocialStreamsConfig);
+      });
+    </script>
+    <script type="text/javascript" src="/janrain/scripts/ark-woj-min.js"></script>
+    <link href="/styles/site.css" rel="stylesheet">
+    <script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+  </head>
+  <body>
+    <div class="arktan-socialstream">
+      <div id="arktan-stream"></div>
+    </div>
+  </body>
+</html>

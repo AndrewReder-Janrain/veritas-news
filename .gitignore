@@ -1,0 +1,11 @@
+updates/
+node_modules
+grunt/deploy.js
+.env.bak
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+.ebextensions/
+

@@ -1,0 +1,407 @@
+    <!--
+    ============================================================================
+        SIGNIN SCREENS:
+        The following screens are part of the sign in user workflow. For a
+        complete out-of-the-box sign in experience, these screens must be
+        included on the page where you are implementing sign in and registration.
+    ============================================================================
+    -->
+
+    <!-- signIn:
+    This is the starting point for sign in and registration. This screen is
+    rendered by default. In order to change this behavior, the Flow must be
+    edited.
+    -->
+    <div style="display:none;" id="signIn">
+        <div class="capture_header">
+            <h1>Sign Up / Sign In</h1>
+        </div>
+        <div class="capture_signin">
+            <h2>With your existing account from...</h2>
+            {* loginWidget *} <br />
+        </div>
+        <div class="capture_backgroundColor">
+            <div class="capture_signin">
+                <h2>With a traditional account...</h2>
+                {* #signInForm *}
+                    {* signInEmailAddress *}
+                    {* currentPassword *}
+                    <div class="capture_form_item">
+                        <a href="#" data-capturescreen="forgotPassword">Forgot your password?</a>
+                    </div>
+                    <div class="capture_rightText">
+                        <button class="capture_secondary capture_btn capture_primary" type="submit"><span class="janrain-icon-16 janrain-icon-key"></span> Sign In</button>
+                        <a href="#" id="capture_signIn_createAccountButton" data-capturescreen="traditionalRegistration" class="capture_secondary capture_createAccountButton capture_btn capture_primary">Create Account</a>
+                        <!-- <div class="serviceMarks">
+                            {* poweredByJanrain *}
+                            <div id="adfdcb81-3fcc-4e89-807b-a54a89fab74d">
+                                <script type="text/javascript" src="//privacy-policy.truste.com/privacy-seal/Janrain,-Inc-/asc?rid=adfdcb81-3fcc-4e89-807b-a54a89fab74d"></script>
+                                <a href="//privacy.truste.com/privacy-seal/Janrain,-Inc-/validation?rid=1b233149-fc3b-4e69-957a-ca7677ee4787" title="TRUSTe Privacy, Trusted Cloud, European Safe Harbor certification" target="_blank"><img style="border: none" src="//privacy-policy.truste.com/privacy-seal/Janrain,-Inc-/seal?rid=7bc0f34d-9cf2-427d-af9e-15e2fc354825" alt="TRUSTe European Safe Harbor certification"/></a>
+                            </div>
+                        </div> -->
+                    </div>
+                {* /signInForm *}
+            </div>
+        </div>
+    </div>
+
+    <!--
+    ============================================================================
+        POST-LOGIN SCREENS:
+        The following screen is part of the post-login workflow.
+    ============================================================================
+    -->
+
+    <!-- emailNotVerified:
+        When a user attempts to login with an account that does not have a verified
+        email address.-->
+
+
+     <div style="display:none;" id="emailNotVerified">
+        <div class="capture_header">
+            <h1>Email Not Verified</h1>
+        </div>
+        <h2>Your email has not been verified.</h2>
+        <p>You must verify your email address before signing in.</p>
+
+        {* #resendVerificationForm *}
+            {* signInEmailAddress *}
+            <div class="capture_footer">
+                <input value="Submit" type="submit" class="capture_btn capture_primary">
+            </div>
+        {* /resendVerificationForm *}
+     </div>
+
+    <!-- returnSocial:
+    This is the screen the user sees in place of the signIn screen if they've
+    already signed in with a social account on this site. Rendering of this
+    screen is defined in the Flow only when the 'janrainLastAuthMethod' cookie
+    is set to'socialSignin'.
+    -->
+    <div style="display:none;" id="returnSocial">
+        <div class="capture_header">
+            <h1>Sign In</h1>
+        </div>
+        <div class="capture_signin">
+            <h2>Welcome back, {* welcomeName *}!</h2>
+            {* loginWidget *}
+            <div class="capture_centerText switchLink"><a href="#" data-cancelcapturereturnexperience="true">Use another account</a></div>
+        </div>
+    </div>
+
+    <!-- returnTraditional:
+    This is the screen the user sees in place of the signIn screen if they've
+    already signed in with a traditional account on this site. Rendering of this
+    screen is defined in the Flow only when the 'janrainLastAuthMethod' cookie
+    is set to'traditionalSignin'.
+    -->
+    <div style="display:none;" id="returnTraditional">
+        <div class="capture_header">
+            <h1>Sign In</h1>
+        </div>
+        <h2 class="capture_centerText"><span id="traditionalWelcomeName">Welcome back!</span></h2>
+        <div class="capture_backgroundColor">
+            {* #signInForm *}
+                {* signInEmailAddress *}
+                {* currentPassword *}
+                <div class="capture_form_item capture_rightText">
+                    <button class="capture_secondary capture_btn capture_primary" type="submit"><span class="janrain-icon-16 janrain-icon-key"></span> Sign In</button>
+                </div>
+            {* /signInForm *}
+            <div class="capture_centerText switchLink"><a href="#" data-cancelcapturereturnexperience="true">Use another account</a></div>
+        </div>
+    </div>
+
+    <!-- accountDeactivated:
+        This screen is rendered if the user's account is deactivated. Screen
+        rendering is handled in janrain-init.js.
+    -->
+    <div style="display:none;" id="accountDeactivated">
+        <div class="capture_header">
+            <h1>Deactivated Account </h1>
+        </div>
+        <div class="content_wrapper">
+            <p>Your account has been deactivated.</p>
+        </div>
+    </div>
+
+    <!-- emailVerificationRequired:
+        This screen is rendered if you have enabled the requirement for verified emails and the user's email has not yet been verified. This screen may appear immediately after registration and also on subsequent logins until the email is verified. Screen rendering is handled in the postLoginScreens Capture settings per API client. A value of "emailVerificationRequired" will enable the requirement of having a verified email. A value of "false" will disable the requirement of having a verified email.
+    -->
+    <div style="display:none;" id="emailVerificationRequired">
+        <div class="capture_header">
+            <h1>Email Verification Required</h1>
+        </div>
+        <p>You must verify your email address before signing in. Check your email for your verification email, or enter your email address in the form below to resend the email.</p>
+
+        {* #resendVerificationForm *}
+            {* signInEmailAddress *}
+            <div class="capture_footer">
+                <input value="Submit" type="submit" class="capture_btn capture_primary">
+            </div>
+        {* /resendVerificationForm *}
+    </div>
+
+
+    <!--
+    ============================================================================
+        REGISTRATION SCREENS:
+        The following screens are part of the registration user workflow. For a
+        complete out-of-the-box registration experience, these screens must be
+        included on the page where you are implementing sign in and
+        registration.
+    ============================================================================
+    -->
+
+    <!-- socialRegistration:
+        When a user clicks an IDP and does not already have an account in your
+        capture application, this screen is rendered. This behavior is defined
+        in the Flow.
+    -->
+    <div style="display:none;" id="socialRegistration">
+        <div class="capture_header">
+            <h1>Almost Done!</h1>
+        </div>
+        <h2>Please confirm the information below before signing in.</h2>
+        {* #socialRegistrationForm *}
+            {* firstName *}
+            {* lastName *}
+            {* emailAddress *}
+            {* displayName *}
+            {* birthdate *}
+            {* gender *}
+            {* addressPostalCode *}
+            {* optInNews1 *}
+            {* optInNews2 *}
+            {* acceptTerms *}
+            <div class="capture_footer">
+                <div class="capture_left">
+                    {* backButton *}
+                </div>
+                <div class="capture_right">
+                    <input value="Create Account" type="submit" class="capture_btn capture_primary">
+                </div>
+            </div>
+        {* /socialRegistrationForm *}
+    </div>
+
+    <!-- traditionalRegistration:
+        When a user clicks the 'Create Account' button this screen is rendered.
+    -->
+    <div style="display:none;" id="traditionalRegistration">
+        <div class="capture_header">
+            <h1>Almost Done!</h1>
+        </div>
+        <p>Please confirm the information below before signing in. Already have an account? <a id="capture_traditionalRegistration_navSignIn" href="#" data-capturescreen="signIn">Sign In.</a></p>
+        {* #registrationForm *}
+            {* firstName *}
+            {* lastName *}
+            {* emailAddress *}
+            {* displayName *}
+            {* newPassword *}
+            {* newPasswordConfirm *}
+            {* birthdate *}
+            {* gender *}
+            {* addressPostalCode *}
+            {* optInNews1 *}
+            {* optInNews2 *}
+            {* acceptTerms *}
+            <div class="capture_footer">
+                <div class="capture_left">
+                    {* backButton *}
+                </div>
+                <div class="capture_right">
+                    <input value="Create Account" type="submit" class="capture_btn capture_primary">
+                </div>
+            </div>
+        {* /registrationForm *}
+    </div>
+
+    <!-- emailVerificationNotification:
+        This screen is rendered after a user has registered. In the case of
+        traditional registration, this screen is always rendered after the user
+        completes registration on the traditionalRegistration screen. In the
+        case of social registration, this screen is only rendered if the data
+        returned from the IDP does not contain a verified email address.
+        Twitter is an example of an IDP that does not return a verified email.
+    -->
+    <div style="display:none;" id="emailVerificationNotification">
+        <div class="capture_header">
+            <h1>Thank you for registering!</h1>
+        </div>
+        <p>We have sent a confirmation email to {* emailAddressData *}. Please check your email and click on the link to activate your account.</p>
+        <div class="capture_footer">
+            <a href="#" onclick="janrain.capture.ui.modal.close()" class="capture_btn capture_primary">Close</a>
+        </div>
+    </div>
+
+    <!--
+    ============================================================================
+        MERGE ACCOUNT SCREENS:
+        The following screens are part of the account merging user workflow. For
+        a complete out-of-the-box account merging experience, these screens must
+        be included on the page where you are implementing account merging
+        functionality.
+    ============================================================================
+    -->
+
+    <!-- mergeAccounts:
+        This screen is rendered if the user created their account through
+        traditional registration and then tries to sign in with an IDP that
+        shares the same email address that exists in their user record.
+
+        NOTE! You will notice special tags you see on this screen. These tags,
+        such as '{| current_displayName |}' are rendered by the Janrain Capture
+        Widget in a way similar to JTL tags, but are more limited. We currently
+        only support modifying the text in this screen through the Flow. You
+        can, however, add your own markup and text throughout this screen as you
+        see fit.
+    -->
+    <div style="display:none;" id="mergeAccounts">
+        {* mergeAccounts {"custom": true} *}
+        <div id="capture_mergeAccounts_mergeAccounts_mergeOptionsContainer" class="capture_mergeAccounts_mergeOptionsContainer">
+            <div class="capture_header">
+                <div class="capture_icon_col">
+                    {| rendered_current_photo |}
+                </div>
+                <div class="capture_displayName_col">
+                    {| current_displayName |}<br />
+                    {| current_emailAddress |}
+                </div>
+                <span class="capture_mergeProvider janrain-provider-icon-24 janrain-provider-icon-{| current_provider_lowerCase |}"></span>
+            </div>
+            <div class="capture_dashed">
+                <div class="capture_mergeCol capture_centerText capture_left">
+                    <p class="capture_bigText">{| foundExistingAccountText |} <b>{| current_emailAddress |}</b>.</p>
+                    <div class="capture_hover">
+                        <div class="capture_popup_container">
+                            <span class="capture_popup-arrow"></span>{| moreInfoHoverText |}<br />
+                            {| existing_displayName |} - {| existing_provider |} : {| existing_siteName |} {| existing_createdDate |}
+                        </div>
+                        {| moreInfoText |}
+                    </div>
+                </div>
+                <div class="capture_mergeCol capture_mergeExisting_col capture_right">
+                    <div class="capture_shadow capture_backgroundColor capture_border">
+                        {| rendered_existing_provider_photo |}
+                        <div class="capture_displayName_col">
+                            {| existing_displayName |}<br />
+                            {| existing_provider_emailAddress |}
+                        </div>
+                        <span class="capture_mergeProvider janrain-provider-icon-16 janrain-provider-icon-{| existing_provider_lowerCase |} "></span>
+                        <div class="capture_centerText capture_smallText">Created {| existing_createdDate |} at {| existing_siteName |}</div>
+                    </div>
+                </div>
+            </div>
+            <div id="capture_mergeAccounts_form_collection_mergeAccounts_mergeRadio" class="capture_form_collection_merge_radioButtonCollection capture_form_collection capture_elementCollection capture_form_collection_mergeAccounts_mergeRadio" data-capturefield="undefined">
+                <div id="capture_mergeAccounts_form_item_mergeAccounts_mergeRadio_1_0" class="capture_form_item capture_form_item_mergeAccounts_mergeRadio capture_form_item_mergeAccounts_mergeRadio_1_0 capture_toggled" data-capturefield="undefined">
+                    <label for="capture_mergeAccounts_mergeAccounts_mergeRadio_1_0">
+                        <input id="capture_mergeAccounts_mergeAccounts_mergeRadio_1_0" data-capturefield="undefined" data-capturecollection="true" value="1" type="radio" class="capture_mergeAccounts_mergeRadio_1_0 capture_input_radio" checked="checked" name="mergeAccounts_mergeRadio">
+                            {| connectLegacyRadioText |}
+                    </label>
+                </div>
+                <div id="capture_mergeAccounts_form_item_mergeAccounts_mergeRadio_2_1" class="capture_form_item capture_form_item_mergeAccounts_mergeRadio capture_form_item_mergeAccounts_mergeRadio_2_1" data-capturefield="undefined">
+                    <label for="capture_mergeAccounts_mergeAccounts_mergeRadio_2_1">
+                        <input id="capture_mergeAccounts_mergeAccounts_mergeRadio_2_1" data-capturefield="undefined" data-capturecollection="true" value="2" type="radio" class="capture_mergeAccounts_mergeRadio_2_1 capture_input_radio" name="mergeAccounts_mergeRadio">
+                            {| createRadioText |} {| current_provider |}
+                    </label>
+                </div>
+                <div class="capture_tip" style="display:none;">
+            </div>
+                <div class="capture_tip_validating" data-elementname="mergeAccounts_mergeRadio">Validating</div>
+                <div class="capture_tip_error" data-elementname="mergeAccounts_mergeRadio"></div>
+            </div>
+            <div class="capture_footer">
+                {| connect_button |}
+                {| create_button |}
+            </div>
+        </div>
+    </div>
+
+    <!-- traditionalAuthenticateMerge:
+        When the user elects to merge their traditional and social account, the
+        user will see this screen. They will then enter their current sign in
+        credentials and, upon successful authorization, the accounts will be
+        merged.
+    -->
+    <div style="display:none;" id="traditionalAuthenticateMerge">
+        <div class="capture_header">
+            <h1>Sign in to complete account merge</h1>
+        </div>
+        <div class="capture_signin">
+            {* #signInForm *}
+                {* signInEmailAddress *}
+                {* currentPassword *}
+                <div class="capture_footer">
+                    <div class="capture_left">
+                        {* backButton *}
+                    </div>
+                    <div class="capture_right">
+                        <button class="capture_secondary capture_btn capture_primary" type="submit"><span class="janrain-icon-16 janrain-icon-key"></span> Sign In</button>
+                    </div>
+                </div>
+             {* /signInForm *}
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--
+    ============================================================================
+        FORGOT PASSWORD SCREENS:
+        The following screens are part of the forgot password user workflow. For
+        a complete out-of-the-box registration experience, these screens must be
+        included on the page where you are implementing forgot password
+        functionality.
+    ============================================================================
+    -->
+
+    <!-- forgotPassword:
+        Entry point into the forgot password user workflow. This screen is
+        rendered when the user clicks on the 'Forgot your password?' link on the
+        signIn screen.
+    -->
+    <div style="display:none;" id="forgotPassword">
+        <div class="capture_header">
+            <h1>Create a new password</h1>
+        </div>
+        <h2>We'll send you a link to create a new password.</h2>
+        {* #forgotPasswordForm *}
+            {* signInEmailAddress *}
+            <div class="capture_footer">
+                <div class="capture_left">
+                    {* backButton *}
+                </div>
+                <div class="capture_right">
+                    <input value="Send" type="submit" class="capture_btn capture_primary">
+                </div>
+            </div>
+        {* /forgotPasswordForm *}
+    </div>
+
+    <!-- forgotPasswordSuccess:
+        When the user submits an email address on the forgotPassword screen,
+        this screen is rendered.
+    -->
+    <div style="display:none;" id="forgotPasswordSuccess">
+        <div class="capture_header">
+            <h1>Create a new password</h1>
+        </div>
+            <p>We've sent an email with instructions to create a new password. Your existing password has not been changed.</p>
+        <div class="capture_footer">
+            <a href="#" onclick="janrain.capture.ui.modal.close()" class="capture_btn capture_primary">Close</a>
+        </div>
+    </div>
+
+    <!-- Flow version:
+        This is a container for a debugging utility.  See showFlowVersion() and
+        the onCaptureRenderStart event handler in janrain-init.js.
+        <div id="flow-version"></div>
+    -->
+
+    <script src="/janrain/scripts/janrain-init.js"></script>
+    <script src="/janrain/scripts/janrain-utils.js"></script>
+

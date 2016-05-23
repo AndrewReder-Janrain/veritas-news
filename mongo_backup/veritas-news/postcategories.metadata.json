@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"veritas-news.postcategories"},{"v":1,"unique":true,"key":{"key":1},"name":"key_1","ns":"veritas-news.postcategories","background":true,"safe":null}]}

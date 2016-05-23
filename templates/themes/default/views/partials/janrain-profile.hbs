@@ -1,0 +1,132 @@
+    <!--
+    ============================================================================
+        EDIT PROFILE SCREENS:
+        The following screens are part of the profile editing user workflow.
+        For a complete out-of-the-box profile editing experience, these screens
+        must be included on the page where you are implementing profile editing
+        functionality.
+    ============================================================================
+    -->
+
+    <!-- editProfile
+        This screen is where the user can edit their profile data. It can be
+        rendered in whatever way works best for your implementation, be it
+        using the data-capturescreen attribute, janrain.capture.ui.renderScreen
+        or passing in 'screenToRender' in the URL linking to the page where
+        you have implemented edit profile.
+    -->
+    <div style="display:none;" id="editProfile">
+        <h1>Edit Your Account</h1>
+        <div class="capture_grid_block">
+            <div class="capture_col_4">
+                <h3>Profile Photo</h3>
+                <div class="contentBoxWhiteShadow">
+                    {* photoManager *}
+                </div>
+                <h3>Linked Accounts</h3>
+                <div class="contentBoxWhiteShadow">
+                    {* linkedAccounts *}
+                    {* #linkAccountContainer *}
+                        <div class="capture_header">
+                            <h1>Link your accounts</h1>
+                        </div>
+                        <h2>Allows you to sign in to your account using that provider in the future.</h2>
+                        <div class="capture_signin">
+                            {* loginWidget *}
+                        </div>
+                    {* /linkAccountContainer *}
+                </div>
+                <!-- Only show this if it was from a traditional login !-->
+                <h3 class="janrain_traditional_account_only">Password</h3>
+                <div class="janrain_traditional_account_only contentBoxWhiteShadow">
+                    <a href="#" data-capturescreen="changePassword">Change Password</a>
+                </div>
+                <h3>Deactivate Account</h3>
+                <div class="capture_deactivate_section contentBoxWhiteShadow clearfix">
+                    <a href="#" data-capturescreen="confirmAccountDeactivation">Deactivate Account</a>
+                </div>
+            </div>
+            <div class="capture_col_8">
+                <h3>Account Info</h3>
+                <div class="contentBoxWhiteShadow">
+                    <div class="capture_grid_block">
+                        <div class="capture_center_col capture_col_8">
+                            <div class="capture_editCol">
+                                {* #editProfileForm *}
+                                    {* firstName *}
+                                    {* lastName *}
+                                    {* gender *}
+                                    {* birthdate *}
+                                    {* displayName *}
+                                    {* emailAddress *}
+                                    {* resendLink *}
+                                    {* addressPostalCode *}
+                                    {* addressState *}
+                                    {* addressCountry *}
+                                    <br>
+                                    <h3>Newsletter Subscriptions</h3>
+                                    {* optInNews1 *}
+                                    {* optInNews2 *}
+                                    <br>
+                                    <h3>Topics of Interest</h3>
+                                    {* interestWorldAffairs *}
+                                    {* interestFinance *}
+                                    {* interestSports *}
+                                    {* interestEducation *}
+                                    {* interestPolitics *}
+                                    {* interestTheatre *}
+                                    <div class="capture_form_item">
+                                        <input value="Save" type="submit" class="capture_btn capture_primary">
+                                        {* savedProfileMessage *}
+                                    </div>
+                                {* /editProfileForm *}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- changePassword:
+        This screen is rendered when the user clicks the 'Change Password' link
+        on the edit profile page. After the user enters their new password,
+        the edit profile screen is refreshed and displayed.
+    -->
+    <div style="display:none;" id="changePassword">
+        <div class="capture_header">
+            <h1>Change password</h1>
+        </div>
+        {* #changePasswordForm *}
+            {* currentPassword *}
+            {* newPassword *}
+            {* newPasswordConfirm *}
+            <div class="capture_footer">
+                <input value="Save" type="submit" class="capture_btn capture_primary">
+            </div>
+        {* /changePasswordForm *}
+    </div>
+
+    <!-- confirmAccountDeactivation:
+        If the user clicks the 'Deactivate Account' link on the edit profile
+        page, this screen is rendered. From here, the user can deactivate their
+        account.
+    -->
+    <div style="display:none;" id="confirmAccountDeactivation">
+        <div class="capture_header">
+            <h1>Deactivate your Account</h1>
+        </div>
+        <div class="content_wrapper">
+            <p>Are you sure you want to deactivate your account? You will no longer have access to your profile.</p>
+            {* deactivateAccountForm *}
+                    <div class="capture_footer">
+                        <input value="Yes" type="submit" class="capture_btn capture_primary">
+                        <a href="#" id="capture_confirmAccountDeactivation_noButton" onclick="janrain.capture.ui.modal.close()" class="capture_btn capture_primary">No</a>
+                    </div>
+                </div>
+            {* /deactivateAccountForm *}
+        </div>
+    </div>
+
+    <script src="/janrain/scripts/janrain-init.js"></script>
+    <script src="/janrain/scripts/janrain-utils.js"></script>

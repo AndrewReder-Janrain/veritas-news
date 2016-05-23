@@ -1,0 +1,8 @@
+<div class="thumbnail">
+  <a href="/article/{{this.post.slug}}"><img src={{this.post.image.url}} style="min-width:100%" class="img-responsive" alt={{this.post.title}}></a>
+  <div class="caption">
+    <a style="color: #333333;" href="/article/{{this.post.slug}}"><h3>{{this.post.title}}</h3></a>
+    {{{this.post.content.brief}}}
+    <p><a href="/article/{{this.post.slug}}" class="btn btn-primary" role="button">Read More</a></p>
+  </div>
+</div>
